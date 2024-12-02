@@ -26,7 +26,7 @@ public class UserService {
             existingUser.setName(user.getName());
             existingUser.setAddress(user.getAddress());
             existingUser.setRole(user.getRole());
-            userRepository.save(existingUser);
+            return userRepository.save(existingUser);
         }
         return null;
     }
