@@ -27,7 +27,7 @@ public class Order {
     }
 
     // Constructor
-    public Order(long orderId, long customer, OrderStatus status, LocalDateTime createdDate) {
+    public Order(long orderId, long customerId, OrderStatus status, LocalDateTime createdDate) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.status = status;
