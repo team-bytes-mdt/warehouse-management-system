@@ -1,4 +1,4 @@
-package de.fhdo.warehouseMgmtSys.models;
+package de.fhdo.warehouseMgmtSys.domain;
 
 import jakarta.persistence.*;
 
@@ -14,7 +14,7 @@ public class Item {
     @Column(name="DESCRIPTION")
     private String description;
     @Column(name="QUANTITY")
-    private String quantity;
+    private int quantity;
     @Column(name="PRICE")
     private double price;
     @Column(name="CATEGORY")
@@ -24,7 +24,7 @@ public class Item {
 
     }
 
-    public Item(long id, String name, String description, String quantity, double price, String category) {
+    public Item(long id, String name, String description, int quantity, double price, String category) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -57,11 +57,11 @@ public class Item {
         this.description = description;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
