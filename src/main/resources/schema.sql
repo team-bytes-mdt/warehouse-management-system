@@ -15,11 +15,12 @@ CREATE TABLE ITEM(
                      CATEGORY VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE USERS(
-                     USER_ID BIGSERIAL PRIMARY KEY,
-                     NAME VARCHAR(255) NOT NULL,
-                     ADDRESS VARCHAR(255) NOT NULL,
-                     ROLE VARCHAR(50) NOT NULL
+CREATE TABLE USERS (
+                       USER_ID BIGSERIAL PRIMARY KEY,
+                       NAME VARCHAR(255) NOT NULL,
+                       ADDRESS VARCHAR(255) NOT NULL,
+                       ROLE VARCHAR(50) NOT NULL,
+                       PHONE_NUMBER VARCHAR(15)
 );
 
 

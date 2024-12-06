@@ -8,11 +8,13 @@ INSERT INTO ITEM (ITEM_ID, NAME, DESCRIPTION, QUANTITY, PRICE, CATEGORY) VALUES 
 INSERT INTO ITEM (ITEM_ID, NAME, DESCRIPTION, QUANTITY, PRICE, CATEGORY) VALUES (4, 'Smartphone', 'Latest model smartphone', 30, 999.99, 'Electronics');
 INSERT INTO ITEM (ITEM_ID, NAME, DESCRIPTION, QUANTITY, PRICE, CATEGORY) VALUES (5, 'Whiteboard', 'Magnetic whiteboard', 15, 45.75, 'Stationery');
 
-INSERT INTO USERS (USER_ID, NAME, ADDRESS, ROLE) VALUES (1, 'Alice Johnson', '123 Elm Street, Cityville', 'Manager');
-INSERT INTO USERS (USER_ID, NAME, ADDRESS, ROLE) VALUES (2, 'Bob Smith', '456 Oak Avenue, Townsville', 'Clerk');
-INSERT INTO USERS (USER_ID, NAME, ADDRESS, ROLE) VALUES (3, 'Carol Davis', '789 Pine Road, Metropolis', 'Administrator');
-INSERT INTO USERS (USER_ID, NAME, ADDRESS, ROLE) VALUES (4, 'David Wilson', '321 Maple Drive, Suburbia', 'Warehouse Staff');
-INSERT INTO USERS (USER_ID, NAME, ADDRESS, ROLE) VALUES (5, 'Eve Brown', '654 Birch Lane, Urbania', 'Supervisor');
+INSERT INTO USERS (USER_ID, NAME, ADDRESS, ROLE, PHONE_NUMBER)
+VALUES
+    (1, 'Alice Johnson', '123 Elm Street, Cityville', 'ADMIN', '+12345678901'),
+    (2, 'Bob Smith', '456 Oak Avenue, Townsville', 'INVENTORY MANAGER', '+12345678902'),
+    (3, 'Carol Davis', '789 Pine Road, Metropolis', 'SYSTEM ADMINISTRATOR', '+12345678903'),
+    (4, 'David Wilson', '321 Maple Drive, Suburbia', 'WAREHOUSE STAFF', '+12345678904'),
+    (5, 'Eve Brown', '654 Birch Lane, Urbania', 'CUSTOMER', '+12345678905');
 
 INSERT INTO ORDERS (ORDER_ID, CUSTOMER_ID, STATUS, CREATED_DATE) VALUES (1, 1, 'PENDING', '2024-12-01 10:30:00');
 INSERT INTO ORDERS (ORDER_ID, CUSTOMER_ID, STATUS, CREATED_DATE) VALUES (2, 3, 'PROCESSING', '2024-12-02 15:45:00');
