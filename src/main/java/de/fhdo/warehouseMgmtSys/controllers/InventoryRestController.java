@@ -1,7 +1,6 @@
 package de.fhdo.warehouseMgmtSys.controllers;
 
-import de.fhdo.warehouseMgmtSys.models.Inventory;
-import de.fhdo.warehouseMgmtSys.models.Item;
+import de.fhdo.warehouseMgmtSys.domain.Inventory;
 import de.fhdo.warehouseMgmtSys.service.InventoryService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
