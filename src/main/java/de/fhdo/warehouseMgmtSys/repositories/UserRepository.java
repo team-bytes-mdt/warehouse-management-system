@@ -1,6 +1,6 @@
-package de.fhdo.warehouseMgmtSys.data;
+package de.fhdo.warehouseMgmtSys.repositories;
 
-import de.fhdo.warehouseMgmtSys.models.User;
+import de.fhdo.warehouseMgmtSys.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
