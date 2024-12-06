@@ -1,7 +1,7 @@
 package de.fhdo.warehouseMgmtSys.service;
 
-import de.fhdo.warehouseMgmtSys.data.UserRepository;
-import de.fhdo.warehouseMgmtSys.models.User;
+import de.fhdo.warehouseMgmtSys.repositories.UserRepository;
+import de.fhdo.warehouseMgmtSys.domain.User;
 
 import java.util.List;
 

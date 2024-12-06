@@ -1,7 +1,7 @@
 package de.fhdo.warehouseMgmtSys.service;
 
-import de.fhdo.warehouseMgmtSys.data.OrderRepository;
-import de.fhdo.warehouseMgmtSys.models.Order;
+import de.fhdo.warehouseMgmtSys.repositories.OrderRepository;
+import de.fhdo.warehouseMgmtSys.domain.Order;
 
 import java.util.List;
 

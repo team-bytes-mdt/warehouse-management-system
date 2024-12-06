@@ -1,9 +1,9 @@
 package de.fhdo.warehouseMgmtSys.service;
 
-import de.fhdo.warehouseMgmtSys.data.InventoryRepository;
-import de.fhdo.warehouseMgmtSys.data.ItemRepository;
-import de.fhdo.warehouseMgmtSys.models.Inventory;
-import de.fhdo.warehouseMgmtSys.models.Item;
+import de.fhdo.warehouseMgmtSys.repositories.InventoryRepository;
+import de.fhdo.warehouseMgmtSys.repositories.ItemRepository;
+import de.fhdo.warehouseMgmtSys.domain.Inventory;
+import de.fhdo.warehouseMgmtSys.domain.Item;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,7 +51,7 @@ public class InventoryService {
     }
 
     /**
-     * Item Service methods
+     * Item Service methods (Functional Requirements)
      */
     public Item getItemById(Long id) {
         return itemRepository.findById(id).orElse(null);
@@ -61,7 +61,11 @@ public class InventoryService {
         return itemRepository.findAll();
     }
 
-    public Item saveItem(Item item) {
+    public Item addItem(Item item) {
+        Item existingItem = itemRepository.findById(item.getId()).orElse(null);
+        if (existingItem != null) {
+
+        }
         return itemRepository.save(item);
     }
 
@@ -78,8 +82,28 @@ public class InventoryService {
         return null;
     }
 
-    public void deleteItemById(Long id) {
+    public void removeItemById(Long id) {
         itemRepository.deleteById(id);
     }
+
+    public Object getStockLevels(long id) {
+        Item existingItem = itemRepository.findById(id).orElse(null);
+        if (existingItem != null) {
+            return String.format("Stock level for item ID %d is %d.", id, existingItem.getQuantity());
+        }
+        return String.format("Item with ID %d not found.", id);
+    }
+
+    public String trackStockLevels(long id, int quantity) {
+        Item existingItem = itemRepository.findById(id).orElse(null);
+        if (existingItem != null) {
+            int newQuantity = existingItem.getQuantity() + quantity;
+            existingItem.setQuantity(newQuantity);
+            itemRepository.save(existingItem);
+            return String.format("Stock level for item ID %d increased by %d. New stock: %d", id, quantity, newQuantity);
+        }
+        return String.format("Item with ID %d not found.", id);
+    }
+
 
 }
