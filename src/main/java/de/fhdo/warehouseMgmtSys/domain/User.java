@@ -1,8 +1,6 @@
-package de.fhdo.warehouseMgmtSys.models;
+package de.fhdo.warehouseMgmtSys.domain;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name="USER")
@@ -18,12 +16,15 @@ public class User {
     @Column(name = "ROLE")
     @Enumerated(EnumType.STRING)
     private Role role;
+    @Column(name = "PHONE_NUMBER")
+    private String phoneNo;
 
-    public User(long userId, String name, String address, Role role) {
+    public User(long userId, String name, String address, Role role, String phoneNo) {
         this.userId = userId;
         this.name = name;
         this.address = address;
         this.role = role;
+        this.phoneNo = phoneNo;
     }
 
     public User() {
@@ -60,5 +61,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 }

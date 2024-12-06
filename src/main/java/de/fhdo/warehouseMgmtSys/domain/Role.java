@@ -1,4 +1,4 @@
-package de.fhdo.warehouseMgmtSys.models;
+package de.fhdo.warehouseMgmtSys.domain;
 
 public enum Role {
     ADMIN, WAREHOUSE_MANAGER, WAREHOUSE_STAFF;
