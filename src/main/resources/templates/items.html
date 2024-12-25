@@ -1,0 +1,100 @@
+<!-- items.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Items</title>
+</head>
+<body>
+<h1>Items</h1>
+<a href="/items/create">Create New Item</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.description}"></td>
+        <td th:text="${item.category}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td th:text="${item.price}"></td>
+        <td>
+            <a th:href="@{/items/{id}(id=${item.id})}">View</a>
+            <a th:href="@{/items/edit/{id}(id=${item.id})}">Edit</a>
+            <form th:action="@{/items/delete/{id}(id=${item.id})}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+<!-- items.html -->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Manage Items</title>-->
+<!--    <link rel="stylesheet" href="/css/style.css" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<header>-->
+<!--    <div class="logo">-->
+<!--        <img src="/images/logo.png" alt="Warehouse Management System">-->
+<!--    </div>-->
+<!--    <nav>-->
+<!--        <ul>-->
+<!--            <li><a href="/items">Item</a></li>-->
+<!--            <li><a href="/customers">Customer</a></li>-->
+<!--            <li><a href="/orders">Orders</a></li>-->
+<!--            <li><a href="/users">Users</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--    <div class="profile-icon">-->
+<!--        <img src="/images/profile-icon.png" alt="Profile">-->
+<!--    </div>-->
+<!--</header>-->
+<!--<main>-->
+<!--    <h1>Manage Item</h1>-->
+<!--    <a href="/items/create" class="btn btn-orange">+ New Item</a>-->
+<!--    <table class="item-table">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th><input type="checkbox" /></th>-->
+<!--            <th>No.</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Quantity</th>-->
+<!--            <th>Description</th>-->
+<!--            <th>Category</th>-->
+<!--            <th>Price</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="item, iterStat : ${items}">-->
+<!--            <td><input type="checkbox" /></td>-->
+<!--            <td th:text="${iterStat.index + 1}"></td>-->
+<!--            <td th:text="${item.name}"></td>-->
+<!--            <td th:text="${item.quantity}"></td>-->
+<!--            <td th:text="${item.description}"></td>-->
+<!--            <td th:text="${item.category}"></td>-->
+<!--            <td th:text="${item.price}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</main>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+

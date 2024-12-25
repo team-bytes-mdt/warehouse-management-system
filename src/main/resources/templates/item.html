@@ -1,0 +1,17 @@
+<!-- item.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Item Details</title>
+</head>
+<body>
+<h1>Item Details</h1>
+<p>ID: <span th:text="${item.id}"></span></p>
+<p>Name: <span th:text="${item.name}"></span></p>
+<p>Description: <span th:text="${item.description}"></span></p>
+<p>Category: <span th:text="${item.category}"></span></p>
+<p>Quantity: <span th:text="${item.quantity}"></span></p>
+<p>Price: <span th:text="${item.price}"></span></p>
+<a href="/items">Back to Items</a>
+</body>
+</html>
