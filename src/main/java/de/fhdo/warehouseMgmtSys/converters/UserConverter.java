@@ -1,8 +1,6 @@
 package de.fhdo.warehouseMgmtSys.converters;
 
-import de.fhdo.warehouseMgmtSys.domain.Order;
 import de.fhdo.warehouseMgmtSys.domain.User;
-import de.fhdo.warehouseMgmtSys.dto.OrderDto;
 import de.fhdo.warehouseMgmtSys.dto.UserDto;
 
 public class UserConverter {
