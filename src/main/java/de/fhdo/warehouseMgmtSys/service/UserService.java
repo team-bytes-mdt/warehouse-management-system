@@ -2,9 +2,12 @@ package de.fhdo.warehouseMgmtSys.service;
 
 import de.fhdo.warehouseMgmtSys.repositories.UserRepository;
 import de.fhdo.warehouseMgmtSys.domain.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class UserService {
     private final UserRepository userRepository;
 
@@ -16,18 +19,29 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public void addUser(User user) {
+    public Optional<User> getUserByUsername(long id) {
+        return userRepository.findById(id);
+    }
+
+    public void createUser(User user) {
         this.userRepository.save(user);
     }
 
-    public User updateUser(User user) {
-        User existingUser = userRepository.findById(user.getUserId()).orElse(null);
-        if (existingUser != null) {
+    public Optional<User> updateUser(long id, User user) {
+        return userRepository.findById(id).map(existingUser -> {
             existingUser.setName(user.getName());
             existingUser.setAddress(user.getAddress());
             existingUser.setRole(user.getRole());
             return userRepository.save(existingUser);
+        });
+
+    }
+
+    public boolean deleteUser(long id) {
+        if (this.userRepository.existsById(id)) {
+            this.userRepository.deleteById(id);
+            return true;
         }
-        return null;
+        return false;
     }
 }
