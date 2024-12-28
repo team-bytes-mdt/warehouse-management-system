@@ -20,8 +20,8 @@ public class OrderConverter {
         Order OrderEntity =  new Order();
         OrderEntity.setOrderId(orderDto.getOrderId());
         OrderEntity.setCustomerId(orderDto.getCustomerId());
-        OrderEntity.setStatus(OrderDto.getOrderStatus());
-        OrderEntity.setCreatedDate(OrderDto.getCreatedAt());
+        OrderEntity.setStatus(orderDto.getOrderStatus());
+        OrderEntity.setCreatedDate(orderDto.getCreatedAt());
 
         return OrderEntity;
     }

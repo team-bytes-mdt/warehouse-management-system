@@ -8,8 +8,8 @@ import java.util.Date;
 public class OrderDto {
     private long orderId;
     private long customerId;
-    private static OrderStatus orderStatus;
-    private static LocalDateTime createdAt;
+    private OrderStatus orderStatus;
+    private LocalDateTime createdAt;
 
     public OrderDto(long orderId, long customerId, OrderStatus orderStatus, LocalDateTime createdAt) {
         this.orderId = orderId;
@@ -17,6 +17,11 @@ public class OrderDto {
         this.orderStatus = orderStatus;
         this.createdAt = createdAt;
     }
+
+    public OrderDto() {
+
+    }
+
     public long getOrderId() {
         return orderId;
     }
@@ -33,15 +38,15 @@ public class OrderDto {
         this.customerId = customerId;
     }
 
-    public static OrderStatus getOrderStatus() {
+    public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setOrderStatus(OrderStatus status) {
+        this.orderStatus = status;
     }
 
-    public static LocalDateTime getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
