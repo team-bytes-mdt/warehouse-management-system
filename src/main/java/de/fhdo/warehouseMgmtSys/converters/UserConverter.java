@@ -7,6 +7,7 @@ public class UserConverter {
     //Convert from Entity to DTOs
     public static UserDto toDto(User userEntity) {
         return new UserDto(
+                userEntity.getUserId(),
                 userEntity.getName(),
                 userEntity.getAddress(),
                 userEntity.getRole(),
