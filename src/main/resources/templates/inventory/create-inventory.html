@@ -1,0 +1,20 @@
+<!-- create-order.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Create Inventory</title>
+</head>
+<body>
+<h1>Create Inventory</h1>
+<form th:action="@{/templates/inventory/inventory}" method="post">
+  <label for="id">ID:</label>
+  <input type="id" id="id" name="id" th:value="${inventory.id}" required />
+  <label for="location">Location:</label>
+  <input type="text" id="location" name="location" th:value="${inventory.location}" required />
+  <label for="lastUpdatedDate">Last Updated Date:</label>
+  <input type="datetime-local" id="lastUpdatedDate" name="lastUpdatedDate" th:value="${inventory.lastUpdatedDate}" required />
+  <button type="submit">Create</button>
+</form>
+<a href="/inventory">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<!-- inventory.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inventory</title>
+</head>
+<body>
+<h1>Inventory</h1>
+<a href="/inventory/create">Create New inventory</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Last Updated Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="inventory : ${inventories}">
+        <td th:text="${inventory.id}"></td>
+        <td th:text="${inventory.location}"></td>
+        <td th:text="${inventory.lastUpdatedDate}"></td>
+        <td>
+            <a th:href="@{/inventory/{id}(id=${inventory.id})}">View</a>
+            <a th:href="@{/inventory/edit/{id}(id=${inventory.id})}">Edit</a>
+            <form th:action="@{/inventory/delete/{id}(id=${inventory.id})}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

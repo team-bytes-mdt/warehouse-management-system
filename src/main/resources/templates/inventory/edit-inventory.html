@@ -1,0 +1,18 @@
+<!-- edit-inventory.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Inventory</title>
+</head>
+<body>
+<h1>Edit Inventory</h1>
+<form th:action="@{/inventory/update/{id}(id=${inventory.id})}" method="post">
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" th:value="${inventory.location}" required />
+    <label for="lastUpdatedDate">Last Updated Date:</label>
+    <input type="datetime-local" id="lastUpdatedDate" name="lastUpdatedDate" th:value="${inventory.lastUpdatedDate}" required />
+    <button type="submit">Update</button>
+</form>
+<a href="/inventory">Cancel</a>
+</body>
+</html>
