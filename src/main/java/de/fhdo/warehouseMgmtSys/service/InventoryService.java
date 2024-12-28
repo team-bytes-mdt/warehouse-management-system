@@ -46,7 +46,7 @@ public class InventoryService {
 
         return inventoryRepository.findById(id).map(existing -> {
             existing.setLocation(inventory.getLocation());
-            existing.setLast_updated_date(inventory.getLast_updated_date());
+            existing.setLastUpdatedDate(inventory.getLastUpdatedDate());
             return inventoryRepository.save(existing);
         });
     }

@@ -13,12 +13,14 @@ public class InventoryConverter {
         return new InventoryDto(
                 inventory.getId(),
                 inventory.getLocation(),
-                inventory.getLast_updated_date()
+                inventory.getLastUpdatedDate()
         );
     }
 
     //Convert from Dto to Entity
     public static Inventory toEntity(InventoryDto inventoryDto) {
+
+        System.out.println("DTO:::"+inventoryDto.getLastUpdatedDate());
         if (inventoryDto == null) {
             return null;
         }
@@ -26,7 +28,7 @@ public class InventoryConverter {
         Inventory inventory = new Inventory();
         inventory.setId(inventoryDto.getId());
         inventory.setLocation(inventoryDto.getLocation());
-        inventory.setLast_updated_date(inventoryDto.getLastUpdatedDate());
+        inventory.setLastUpdatedDate(inventoryDto.getLastUpdatedDate());
         return inventory;
     };
 }

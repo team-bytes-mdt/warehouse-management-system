@@ -2,35 +2,38 @@ package de.fhdo.warehouseMgmtSys.domain;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name="INVENTORY")
+@Table(name = "INVENTORY")
 public class Inventory {
-    @Id
-    @Column(name="INVENTORY_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name="LOCATION")
-    private String location;
-    @Column(name="LAST_UPDATED_DATE")
-    private Date last_updated_date;
 
-    public Inventory(long id, String location, Date last_updated_date) {
-        this.id = id;
-        this.location = location;
-        this.last_updated_date = last_updated_date;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "INVENTORY_ID", nullable = false, updatable = false)
+    private Long id;
+
+    @Column(name = "LOCATION", nullable = false)
+    private String location;
+
+    @Column(name = "LAST_UPDATED_DATE", nullable = false)
+    private LocalDateTime lastUpdatedDate;
 
     public Inventory() {
-
+        // Default constructor
     }
 
-    public long getId() {
+
+    public Inventory(String location, LocalDateTime lastUpdatedDate) {
+        this.location = location;
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,11 +45,17 @@ public class Inventory {
         this.location = location;
     }
 
-    public Date getLast_updated_date() {
-        return last_updated_date;
+    public LocalDateTime getLastUpdatedDate() {
+        return lastUpdatedDate;
     }
 
-    public void setLast_updated_date(Date last_updated_date) {
-        this.last_updated_date = last_updated_date;
+    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    @PrePersist
+    @PreUpdate
+    private void updateTimestamp() {
+        this.lastUpdatedDate = LocalDateTime.now();
     }
 }
