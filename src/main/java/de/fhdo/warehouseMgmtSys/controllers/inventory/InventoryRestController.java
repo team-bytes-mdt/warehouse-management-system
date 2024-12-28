@@ -1,4 +1,4 @@
-package de.fhdo.warehouseMgmtSys.controllers;
+package de.fhdo.warehouseMgmtSys.controllers.inventory;
 
 import de.fhdo.warehouseMgmtSys.converters.InventoryConverter;
 import de.fhdo.warehouseMgmtSys.dto.InventoryDto;
