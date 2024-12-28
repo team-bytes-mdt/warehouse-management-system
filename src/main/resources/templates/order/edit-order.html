@@ -1,0 +1,22 @@
+<!-- edit-order.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Order</title>
+</head>
+<body>
+<h1>Edit Order</h1>
+<form th:action="@{/order/update/{id}(id=${order.orderId})}" method="post">
+    <label for="orderId">Order ID:</label>
+    <input type="text" id="orderId" name="orderId" th:value="${order.orderId}" required />
+    <label for="customerId">Customer ID:</label>
+    <input type="text" id="customerId" name="customerId" th:value="${order.customerId}" required />
+    <label for="orderStatus">Status:</label>
+    <input type="text" id="orderStatus" name="orderStatus" th:value="${order.orderStatus}" required />
+    <label for="createdAt">Created At:</label>
+    <input type="datetime-local" id="createdAt" name="createdAt" th:value="${order.createdAt}" required />
+    <button type="submit">Update</button>
+</form>
+<a href="/order">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- edit-user.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit User</title>
+</head>
+<body>
+<h1>Edit User</h1>
+<form th:action="@{/user/update/{id}(id=${user.id})}" method="post">
+    <label for="id">User ID:</label>
+    <input type="text" id="id" name="id" th:value="${user.id}" required />
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${user.name}" required />
+    <label for="role">Status:</label>
+    <input type="text" id="role" name="role" th:value="${user.role}" required />
+    <label for="phone">Phone:</label>
+    <input type="datetime-local" id="phone" name="phone" th:value="${user.phone}" required />
+    <button type="submit">Update</button>
+</form>
+<a href="/user">Cancel</a>
+</body>
+</html>
