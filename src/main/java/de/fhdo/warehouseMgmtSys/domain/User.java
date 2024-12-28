@@ -3,7 +3,8 @@ package de.fhdo.warehouseMgmtSys.domain;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="USER")
+@Table(name = "\"user\"") // For H2 and PostgreSQL
+//@Table(name="USER")
 public class User {
     @Id
     @Column(name="USER_ID")
