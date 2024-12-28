@@ -1,4 +1,4 @@
-package de.fhdo.warehouseMgmtSys.controllers;
+package de.fhdo.warehouseMgmtSys.controllers.item;
 
 import de.fhdo.warehouseMgmtSys.converters.ItemConverter;
 import de.fhdo.warehouseMgmtSys.domain.Item;
@@ -32,7 +32,7 @@ public class ItemController {
 
         // Add DTO to the model
         model.addAttribute("items", items);
-        return "items";
+        return "item/items";
     }
 
     @GetMapping("/{id}")
@@ -44,13 +44,13 @@ public class ItemController {
 
         // Add DTO to the model
         model.addAttribute("item", item);
-        return "item";
+        return "item/item";
     }
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("item", new ItemDto());
-        return "create-item";
+        return "item/create-item";
     }
 
     @PostMapping
@@ -66,7 +66,7 @@ public class ItemController {
                 .map(ItemConverter::toDto)
                 .orElse(null);
         model.addAttribute("item", item);
-        return "edit-item";
+        return "item/edit-item";
     }
 
     @PostMapping("/update/{id}")

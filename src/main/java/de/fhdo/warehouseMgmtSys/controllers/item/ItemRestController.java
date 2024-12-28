@@ -1,8 +1,6 @@
-package de.fhdo.warehouseMgmtSys.controllers;
+package de.fhdo.warehouseMgmtSys.controllers.item;
 
-import de.fhdo.warehouseMgmtSys.converters.InventoryConverter;
 import de.fhdo.warehouseMgmtSys.converters.ItemConverter;
-import de.fhdo.warehouseMgmtSys.dto.InventoryDto;
 import de.fhdo.warehouseMgmtSys.dto.ItemDto;
 import de.fhdo.warehouseMgmtSys.service.ItemService;
 import org.springframework.http.ResponseEntity;
