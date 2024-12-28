@@ -1,4 +1,4 @@
-<!-- create-item.html -->
+<!-- create-order.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Create Item</h1>
-<form th:action="@{/}" method="post">
+<form th:action="@{/static}" method="post">
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" th:value="${item.name}" required />
   <label for="description">Description:</label>
