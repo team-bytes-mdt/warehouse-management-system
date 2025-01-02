@@ -27,21 +27,9 @@ public class UserService {
         this.userRepository.save(user);
     }
 
-    public Optional<User> updateUser(long id, User user) {
-        return userRepository.findById(id).map(existingUser -> {
-            existingUser.setName(user.getName());
-            existingUser.setAddress(user.getAddress());
-            existingUser.setRole(user.getRole());
-            return userRepository.save(existingUser);
-        });
-
-    }
 
     public boolean deleteUser(long id) {
-        if (this.userRepository.existsById(id)) {
-            this.userRepository.deleteById(id);
-            return true;
-        }
+
         return false;
     }
 }

@@ -27,23 +27,8 @@ public class OrderService {
         return this.orderRepository.save(order);
     }
 
-    public Optional<Order> updateOrder(long id,Order order) {
-        return orderRepository.findById(id).map(existing -> {
-            existing.setOrderId(order.getOrderId());
-            existing.setCustomerId(order.getCustomerId());
-            existing.setStatus(order.getStatus());
-            existing.setCreatedDate(order.getCreatedDate());
-            return orderRepository.save(existing);
-        });
-
-
-    }
-
     public boolean deleteOrder(long id) {
-        if(this.orderRepository.existsById(id)) {
-            this.orderRepository.deleteById(id);
-            return true;
-        }
+
         return false;
     }
 }
