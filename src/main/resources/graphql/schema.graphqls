@@ -1,0 +1,45 @@
+type Query {
+    inventories: [Inventory!]!
+    inventory(id: ID!): Inventory
+    items:[Item!]!
+    item(id: ID!): Item
+
+}
+
+type Mutation {
+    createInventory(inventory: InventoryInput): Inventory
+    createItem(item: ItemInput): Item
+}
+
+input InventoryInput {
+    location: String!
+}
+
+input ItemInput {
+    name: String!
+    description: String
+    category: String!
+    quantity: Int!
+    price: Float!
+}
+
+"""
+    Inventory Type Object
+"""
+type Inventory {
+    id: ID!
+    location: String!
+    lastUpdatedDate: String
+}
+
+"""
+    Item Type Object
+"""
+type Item {
+    id: ID!
+    name: String!
+    description: String
+    category: String
+    quantity: Int
+    price: Float
+}
