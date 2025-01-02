@@ -16,7 +16,7 @@ public class Inventory {
     @Column(name = "LOCATION", nullable = false)
     private String location;
 
-    @Column(name = "LAST_UPDATED_DATE", nullable = false)
+    @Column(name = "LAST_UPDATED_DATE", nullable = false, updatable = false)
     private LocalDateTime lastUpdatedDate;
 
     public Inventory() {
@@ -54,8 +54,12 @@ public class Inventory {
     }
 
     @PrePersist
+    private void onCreate() {
+        this.lastUpdatedDate = LocalDateTime.now();
+    }
+
     @PreUpdate
-    private void updateTimestamp() {
+    private void onUpdate() {
         this.lastUpdatedDate = LocalDateTime.now();
     }
 }
