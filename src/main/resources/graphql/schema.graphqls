@@ -3,6 +3,10 @@ type Query {
     inventory(id: ID!): Inventory
     items:[Item!]!
     item(id: ID!): Item
+    orders: [Order!]!
+    order(id: ID!): Order
+    users: [User!]!
+    user(id: ID!): User
 
 }
 
@@ -11,10 +15,16 @@ type Mutation {
     createItem(item: ItemInput): Item
 }
 
+"""
+    Inventory Input Object
+"""
 input InventoryInput {
     location: String!
 }
 
+"""
+    Item Input Object
+"""
 input ItemInput {
     name: String!
     description: String
@@ -42,4 +52,42 @@ type Item {
     category: String
     quantity: Int
     price: Float
+}
+
+"""
+    Order Type Object
+"""
+type Order {
+    id: ID!
+    customerId: ID!
+    status: OrderStatus!
+    createdAt: String
+}
+
+"""
+    User Type Object
+"""
+type User {
+    id: ID!
+    name: String!
+    address: String!
+    role: RoleStatus!
+    phoneNo: String!
+}
+
+enum RoleStatus {
+    ADMIN,
+    WAREHOUSE_MANAGER,
+    WAREHOUSE_STAFF,
+    INVENTORY_MANAGER,
+    SYSTEM_ADMINISTRATOR,
+    CUSTOMER
+}
+
+#
+enum OrderStatus {
+    PENDING,
+    PROCESSING,
+    COMPLETED,
+    CANCELLED
 }
