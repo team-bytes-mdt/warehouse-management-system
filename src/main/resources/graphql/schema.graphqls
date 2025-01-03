@@ -12,7 +12,11 @@ type Query {
 
 type Mutation {
     createInventory(inventory: InventoryInput): Inventory
+    updateInventory(id: ID, inventory: InventoryInput): Inventory
+    deleteInventory(id: ID): Boolean
     createItem(item: ItemInput): Item
+    updateItem(id:ID, item: ItemInput): Item
+    deleteItem(id: ID): Boolean
 }
 
 """

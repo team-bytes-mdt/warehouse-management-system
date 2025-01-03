@@ -35,4 +35,14 @@ public class InventoryGraphQlController {
     public Inventory createInventory(@Argument Inventory inventory) {
         return inventoryService.createInventory(inventory);
     }
+
+    @MutationMapping
+    public Optional<Inventory> updateInventory(@Argument Long id, @Argument Inventory inventory) {
+        return inventoryService.updateInventoryById(id,inventory);
+    }
+
+    @MutationMapping
+    public boolean deleteInventory(@Argument Long id) {
+        return inventoryService.deleteInventoryById(id);
+    }
 }
