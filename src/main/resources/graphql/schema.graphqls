@@ -1,0 +1,111 @@
+type Query {
+    inventories: [Inventory!]!
+    inventory(id: ID!): Inventory
+    items:[Item!]!
+    item(id: ID!): Item
+    orders: [Order!]!
+    order(id: ID!): Order
+    users: [User!]!
+    user(id: ID!): User
+
+}
+
+type Mutation {
+    createInventory(inventory: InventoryInput): Inventory
+    updateInventory(id: ID, inventory: InventoryInput): Inventory
+    deleteInventory(id: ID): Boolean
+    createItem(item: ItemInput): Item
+    updateItem(id:ID, item: ItemInput): Item
+    deleteItem(id: ID): Boolean
+    createOrder(order: OrderInput!): Order
+    updateOrder(id: ID!, status: OrderStatus!): Order
+    deleteOrder(id: ID!): Boolean
+}
+
+"""
+    Inventory Input Object
+"""
+input InventoryInput {
+    location: String!
+}
+
+"""
+    Order Input Object
+"""
+input OrderInput {
+    customerId: ID!
+    status: OrderStatus!
+    createdAt: String!
+}
+
+"""
+    Item Input Object
+"""
+input ItemInput {
+    name: String!
+    description: String
+    category: String!
+    quantity: Int!
+    price: Float!
+}
+
+"""
+    Inventory Type Object
+"""
+type Inventory {
+    id: ID!
+    location: String!
+    lastUpdatedDate: String
+}
+
+"""
+    Item Type Object
+"""
+type Item {
+    id: ID!
+    name: String!
+    description: String
+    category: String
+    quantity: Int
+    price: Float
+}
+
+"""
+    Order Type Object
+"""
+type Order {
+    id: ID!
+    customerId: ID!
+    status: OrderStatus!
+    createdAt: String
+}
+
+"""
+    User Type Object
+"""
+type User {
+    id: ID!
+    name: String!
+    address: String!
+    role: RoleStatus!
+    phoneNo: String!
+}
+
+enum RoleStatus {
+    ADMIN,
+    WAREHOUSE_MANAGER,
+    WAREHOUSE_STAFF,
+    INVENTORY_MANAGER,
+    SYSTEM_ADMINISTRATOR,
+    CUSTOMER
+}
+
+"""
+    Enum for Order Status
+"""
+enum OrderStatus {
+    PENDING
+    PROCESSING
+    COMPLETED
+    CANCELLED
+}
