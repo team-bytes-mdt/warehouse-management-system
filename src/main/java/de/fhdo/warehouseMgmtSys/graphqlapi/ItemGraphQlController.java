@@ -33,5 +33,15 @@ public class ItemGraphQlController {
         return this.itemService.createItem(item);
     }
 
+    @MutationMapping
+    public Optional<Item> updateItem(@Argument Long id, @Argument Item item) {
+        return itemService.updateItemById(id, item);
+    }
+
+    @MutationMapping
+    public Boolean deleteItem(@Argument Long id) {
+        return this.itemService.deleteItemById(id);
+    }
+
 
 }
