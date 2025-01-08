@@ -17,6 +17,9 @@ type Mutation {
     createItem(item: ItemInput): Item
     updateItem(id:ID, item: ItemInput): Item
     deleteItem(id: ID): Boolean
+    createOrder(order: OrderInput!): Order
+    updateOrder(id: ID!, status: OrderStatus!): Order
+    deleteOrder(id: ID!): Boolean
 }
 
 """
@@ -24,6 +27,15 @@ type Mutation {
 """
 input InventoryInput {
     location: String!
+}
+
+"""
+    Order Input Object
+"""
+input OrderInput {
+    customerId: ID!
+    status: OrderStatus!
+    createdAt: String!
 }
 
 """
@@ -88,7 +100,10 @@ enum RoleStatus {
     CUSTOMER
 }
 
-#
+"""
+    Enum for Order Status
+"""
+
 enum OrderStatus {
     PENDING,
     PROCESSING,
