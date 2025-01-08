@@ -103,9 +103,10 @@ enum RoleStatus {
 """
     Enum for Order Status
 """
+
 enum OrderStatus {
-    PENDING
-    PROCESSING
-    COMPLETED
+    PENDING,
+    PROCESSING,
+    COMPLETED,
     CANCELLED
 }

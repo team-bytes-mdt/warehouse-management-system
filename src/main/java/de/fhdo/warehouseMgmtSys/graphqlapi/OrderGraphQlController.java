@@ -1,5 +1,4 @@
 package de.fhdo.warehouseMgmtSys.graphqlapi;
-
 import de.fhdo.warehouseMgmtSys.domain.Order;
 import de.fhdo.warehouseMgmtSys.service.OrderService;
 import de.fhdo.warehouseMgmtSys.domain.OrderStatus;
@@ -56,4 +55,3 @@ public class OrderGraphQlController {
     public boolean deleteOrder(@Argument long id) {
         return orderService.deleteOrder(id);
     }
-}
