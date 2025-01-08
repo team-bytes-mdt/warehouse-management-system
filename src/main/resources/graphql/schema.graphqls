@@ -32,6 +32,15 @@ input InventoryInput {
 }
 
 """
+    Order Input Object
+"""
+input OrderInput {
+    customerId: ID!
+    status: OrderStatus!
+    createdAt: String!
+}
+
+"""
     Item Input Object
 """
 input ItemInput {
@@ -96,6 +105,7 @@ type User {
 """
     Enum for Order Status
 """
+
 enum OrderStatus {
     PENDING
     PROCESSING
