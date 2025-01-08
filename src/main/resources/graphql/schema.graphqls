@@ -32,15 +32,6 @@ input InventoryInput {
 }
 
 """
-    Order Input Object
-"""
-input OrderInput {
-    customerId: ID!
-    status: OrderStatus!
-    createdAt: String!
-}
-
-"""
     Item Input Object
 """
 input ItemInput {
