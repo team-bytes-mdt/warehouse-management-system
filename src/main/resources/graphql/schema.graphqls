@@ -4,7 +4,7 @@ type Query {
     items:[Item!]!
     item(id: ID!): Item
     orders: [Order!]!
-    order(id: ID!): Order
+    order(orderId: ID!): Order
     users: [User!]!
     user(id: ID!): User
 
@@ -17,9 +17,11 @@ type Mutation {
     createItem(item: ItemInput): Item
     updateItem(id:ID, item: ItemInput): Item
     deleteItem(id: ID): Boolean
+
+    # Updated Order mutations using OrderInput
     createOrder(order: OrderInput!): Order
-    updateOrder(id: ID!, status: OrderStatus!): Order
-    deleteOrder(id: ID!): Boolean
+    updateOrder(orderId: ID!, order: OrderInput!): Order
+    deleteOrder(orderId: ID!): Boolean
 }
 
 """
@@ -50,6 +52,15 @@ input ItemInput {
 }
 
 """
+    Order Input Object
+"""
+input OrderInput {
+    customerId: ID!
+    status: OrderStatus!
+    createdDate: String!
+}
+
+"""
     Inventory Type Object
 """
 type Inventory {
@@ -74,10 +85,10 @@ type Item {
     Order Type Object
 """
 type Order {
-    id: ID!
+    orderId: ID!
     customerId: ID!
     status: OrderStatus!
-    createdAt: String
+    createdDate: String
 }
 
 """
@@ -91,22 +102,26 @@ type User {
     phoneNo: String!
 }
 
-enum RoleStatus {
-    ADMIN,
-    WAREHOUSE_MANAGER,
-    WAREHOUSE_STAFF,
-    INVENTORY_MANAGER,
-    SYSTEM_ADMINISTRATOR,
-    CUSTOMER
-}
-
 """
     Enum for Order Status
 """
 
 enum OrderStatus {
-    PENDING,
-    PROCESSING,
-    COMPLETED,
+    PENDING
+    PROCESSING
+    COMPLETED
     CANCELLED
+}
+
+"""
+    Enum for User Role Status
+"""
+
+enum RoleStatus {
+    ADMIN
+    WAREHOUSE_MANAGER
+    WAREHOUSE_STAFF
+    INVENTORY_MANAGER
+    SYSTEM_ADMINISTRATOR
+    CUSTOMER
 }
