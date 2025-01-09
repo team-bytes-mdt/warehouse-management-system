@@ -13,7 +13,8 @@ public class ItemConverter {
                 itemEntity.getDescription(),
                 itemEntity.getCategory(),
                 itemEntity.getQuantity(),
-                itemEntity.getPrice()
+                itemEntity.getPrice(),
+                itemEntity.getInventoryId()
         );
     }
 
@@ -26,6 +27,7 @@ public class ItemConverter {
         itemEntity.setCategory(itemDto.getCategory());
         itemEntity.setQuantity(itemDto.getQuantity());
         itemEntity.setPrice(itemDto.getPrice());
+        itemEntity.setInventoryId(itemDto.getInventoryId());
         return itemEntity;
     }
 }
