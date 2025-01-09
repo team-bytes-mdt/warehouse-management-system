@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/user")
 public class UserRestController {
@@ -34,7 +35,7 @@ public class UserRestController {
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getInventoryById(@PathVariable Long id) {
 
-        return userService.getUserByUsername(id)
+        return userService.getUserById(id)
                 .map(UserConverter::toDto)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -44,7 +45,9 @@ public class UserRestController {
     // Create a new inventory
     @PostMapping
     public ResponseEntity<UserDto> createInventory(@RequestBody UserDto userDto) {
+        System.out.println("USER DTO"+ userDto.getName());
         var user = UserConverter.toEntity(userDto);
+        System.out.println("USER ENTITY"+user.getName());
         var savedUser = userService.createUser(user);
         return new ResponseEntity<>(UserConverter.toDto(savedUser), HttpStatus.CREATED);
 
