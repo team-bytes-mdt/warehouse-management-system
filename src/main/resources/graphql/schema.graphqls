@@ -22,6 +22,11 @@ type Mutation {
     createOrder(order: OrderInput!): Order
     updateOrder(orderId: ID!, order: OrderInput!): Order
     deleteOrder(orderId: ID!): Boolean
+
+    # Upadated User mutations using UserInput
+    createUser(user: UserInput!): User
+    updateUser(userId: ID!, user: UserInput!): User
+    deleteUser(userId: ID!): Boolean
 }
 
 """
@@ -49,6 +54,15 @@ input OrderInput {
     customerId: ID!
     status: OrderStatus!
     createdDate: String!
+}
+"""
+User Input Object
+"""
+input UserInput {
+    name: String!
+    address: String!
+    role: RoleStatus!
+    phoneNo: String
 }
 
 """

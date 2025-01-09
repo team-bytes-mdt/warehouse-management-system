@@ -43,7 +43,6 @@ public class Order {
     }
 
 
-
     public long getOrderId() {
         return orderId;
     }
@@ -52,29 +51,17 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
+    public String getCustomerName() { return customerName;}
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+    public void setCustomerName(String customerName) {this.customerName = customerName;}
 
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
+    public String getCustomerAddress() {return customerAddress;}
 
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
+    public void setCustomerAddress(String customerAddress) {this.customerAddress = customerAddress;}
 
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
-    }
+    public String getCustomerPhoneNumber() {return customerPhoneNumber;}
 
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
-    }
+    public void setCustomerPhoneNumber(String customerPhoneNumber) {this.customerPhoneNumber = customerPhoneNumber;}
 
     public OrderStatus getStatus() {
         return status;

@@ -15,31 +15,36 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    // Get all users
     public List<User> getAllUsers() {
-        return this.userRepository.findAll();
+        return userRepository.findAll();
     }
 
-    public Optional<User> getUserByUsername(long id) {
+    // Get user by ID
+    public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
+    // Create a new user
     public User createUser(User user) {
         return userRepository.save(user);
     }
 
-    public Optional<User> updateUser(long id, User user) {
+    // Update an existing user
+    public Optional<User> updateUser(Long id, User user) {
         return userRepository.findById(id).map(existingUser -> {
             existingUser.setName(user.getName());
             existingUser.setAddress(user.getAddress());
             existingUser.setRole(user.getRole());
+            existingUser.setPhoneNo(user.getPhoneNo());
             return userRepository.save(existingUser);
         });
-
     }
 
-    public boolean deleteUser(long id) {
-        if (this.userRepository.existsById(id)) {
-            this.userRepository.deleteById(id);
+    // Delete a user by ID
+    public boolean deleteUser(Long id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
             return true;
         }
         return false;
