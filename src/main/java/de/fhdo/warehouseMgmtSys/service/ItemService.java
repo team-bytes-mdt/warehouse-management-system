@@ -40,6 +40,7 @@ public class ItemService {
             existing.setPrice(item.getPrice());
             existing.setQuantity(item.getQuantity());
             existing.setCategory(item.getCategory());
+            existing.setInventoryId(item.getInventoryId());
             return itemRepository.save(existing);
         });
 
