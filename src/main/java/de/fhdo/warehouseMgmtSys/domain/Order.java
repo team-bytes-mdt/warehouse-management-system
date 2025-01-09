@@ -12,8 +12,17 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
 
-    @Column(name="CUSTOMER_ID")
-    private long customerId;
+   // @Column(name="CUSTOMER_ID")
+   // private long customerId;
+
+    @Column(name = "CUSTOMER_NAME", nullable = false)
+    private String customerName;
+
+    @Column(name = "CUSTOMER_ADDRESS", nullable = false)
+    private String customerAddress;
+
+    @Column(name = "CUSTOMER_PHONE_NUMBER", nullable = false)
+    private String customerPhoneNumber;
 
     @Column(name="STATUS")
     @Enumerated(EnumType.STRING)
@@ -27,9 +36,12 @@ public class Order {
     }
 
     // Constructor
-    public Order(long orderId, long customerId, OrderStatus status, LocalDateTime createdDate) {
+    public Order(long orderId, String customerName, String customerAddress, String customerPhoneNumber, OrderStatus status, LocalDateTime createdDate) {
         this.orderId = orderId;
-        this.customerId = customerId;
+        //this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhoneNumber = customerPhoneNumber;
         this.status = status;
         this.createdDate = createdDate;
     }
@@ -44,13 +56,21 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public long getCustomerId() {
-        return customerId;
-    }
+    //public long getCustomerId() {return customerId;}
 
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
-    }
+    //public void setCustomerId(long customerId) {this.customerId = customerId;}
+
+    public String getCustomerName() { return customerName;}
+
+    public void setCustomerName(String customerName) {this.customerName = customerName;}
+
+    public String getCustomerAddress() {return customerAddress;}
+
+    public void setCustomerAddress(String customerAddress) {this.customerAddress = customerAddress;}
+
+    public String getCustomerPhoneNumber() {return customerPhoneNumber;}
+
+    public void setCustomerPhoneNumber(String customerPhoneNumber) {this.customerPhoneNumber = customerPhoneNumber;}
 
     public OrderStatus getStatus() {
         return status;
@@ -66,6 +86,16 @@ public class Order {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    @PrePersist
+    private void onCreate() {
+        this.createdDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void onUpdate() {
+        this.createdDate = LocalDateTime.now();
     }
 
 
