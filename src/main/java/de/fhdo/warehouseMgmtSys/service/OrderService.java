@@ -31,6 +31,8 @@ public class OrderService {
         return orderRepository.findById(id).map(existing -> {
             existing.setOrderId(order.getOrderId());
             existing.setCustomerName(order.getCustomerName());
+            existing.setCustomerAddress(order.getCustomerAddress());
+            existing.setCustomerPhoneNumber(order.getCustomerPhoneNumber());
             existing.setStatus(order.getStatus());
             existing.setCreatedDate(order.getCreatedDate());
             return orderRepository.save(existing);
