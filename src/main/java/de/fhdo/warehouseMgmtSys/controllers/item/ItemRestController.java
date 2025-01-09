@@ -53,7 +53,7 @@ public class ItemRestController {
 
     // Update an inventory
     @PutMapping("/{id}")
-    public ResponseEntity<ItemDto> updateInventory(@PathVariable long id,
+    public ResponseEntity<ItemDto> updateItem(@PathVariable long id,
                                                         @RequestBody ItemDto itemDto) {
         var item = ItemConverter.toEntity(itemDto);
         var updatedInventory = itemService.updateItemById(id, item);
