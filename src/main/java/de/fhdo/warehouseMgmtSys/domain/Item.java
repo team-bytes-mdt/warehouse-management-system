@@ -19,18 +19,22 @@ public class Item {
     private double price;
     @Column(name="CATEGORY")
     private String category;
+    @Column(name="INVENTORY_ID")
+    private long inventoryId;
+
 
     public Item() {
 
     }
 
-    public Item(long id, String name, String description, int quantity, double price, String category) {
+    public Item(long id, String name, String description, int quantity, double price, String category, long inventoryId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.quantity = quantity;
         this.price = price;
         this.category = category;
+        this.inventoryId = inventoryId;
     }
 
     public long getId() {
@@ -81,5 +85,11 @@ public class Item {
         this.category = category;
     }
 
+    public long getInventoryId() {
+        return inventoryId;
+    }
 
+    public void setInventoryId(long inventoryId) {
+        this.inventoryId = inventoryId;
+    }
 }

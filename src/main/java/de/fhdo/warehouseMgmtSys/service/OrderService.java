@@ -30,7 +30,7 @@ public class OrderService {
     public Optional<Order> updateOrder(long id,Order order) {
         return orderRepository.findById(id).map(existing -> {
             existing.setOrderId(order.getOrderId());
-            existing.setCustomerId(order.getCustomerId());
+            existing.setCustomerName(order.getCustomerName());
             existing.setStatus(order.getStatus());
             existing.setCreatedDate(order.getCreatedDate());
             return orderRepository.save(existing);

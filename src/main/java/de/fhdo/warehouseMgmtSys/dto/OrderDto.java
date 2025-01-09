@@ -7,20 +7,26 @@ import java.util.Date;
 
 public class OrderDto {
     private long orderId;
-    private long customerId;
+    private String customerName;
+    private String customerAddress;
+    private String customerPhoneNumber;
     private OrderStatus orderStatus;
     private LocalDateTime createdAt;
-
-    public OrderDto(long orderId, long customerId, OrderStatus orderStatus, LocalDateTime createdAt) {
-        this.orderId = orderId;
-        this.customerId = customerId;
-        this.orderStatus = orderStatus;
-        this.createdAt = createdAt;
-    }
 
     public OrderDto() {
 
     }
+
+    public OrderDto(long orderId, String customerName, String customerAddress, String customerPhoneNumber, OrderStatus orderStatus, LocalDateTime createdAt) {
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhoneNumber = customerPhoneNumber;
+        this.orderStatus = orderStatus;
+        this.createdAt = createdAt;
+    }
+
+
 
     public long getOrderId() {
         return orderId;
@@ -30,12 +36,28 @@ public class OrderDto {
         this.orderId = orderId;
     }
 
-    public long getCustomerId() {
-        return customerId;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
+    }
+
+    public String getCustomerPhoneNumber() {
+        return customerPhoneNumber;
+    }
+
+    public void setCustomerPhoneNumber(String customerPhoneNumber) {
+        this.customerPhoneNumber = customerPhoneNumber;
     }
 
     public OrderStatus getOrderStatus() {

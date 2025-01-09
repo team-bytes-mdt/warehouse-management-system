@@ -12,9 +12,6 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
 
-   // @Column(name="CUSTOMER_ID")
-   // private long customerId;
-
     @Column(name = "CUSTOMER_NAME", nullable = false)
     private String customerName;
 
@@ -28,7 +25,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // Enum for OrderStatus
 
-    @Column(name="CREATED_DATE")
+    @Column(name="CREATED_DATE", nullable = false, updatable = false)
     private LocalDateTime createdDate;
 
     public Order() {
@@ -38,14 +35,12 @@ public class Order {
     // Constructor
     public Order(long orderId, String customerName, String customerAddress, String customerPhoneNumber, OrderStatus status, LocalDateTime createdDate) {
         this.orderId = orderId;
-        //this.customerId = customerId;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerPhoneNumber = customerPhoneNumber;
         this.status = status;
         this.createdDate = createdDate;
     }
-
 
 
     public long getOrderId() {
@@ -55,10 +50,6 @@ public class Order {
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
-
-    //public long getCustomerId() {return customerId;}
-
-    //public void setCustomerId(long customerId) {this.customerId = customerId;}
 
     public String getCustomerName() { return customerName;}
 
@@ -97,6 +88,4 @@ public class Order {
     private void onUpdate() {
         this.createdDate = LocalDateTime.now();
     }
-
-
 }
