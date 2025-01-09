@@ -37,7 +37,7 @@ public class UserController {
     @GetMapping("/{id}")
     public String getUserById(Model model, @PathVariable long id) {
         // Fetch item and convert it to DTO
-        UserDto user = userService.getUserByUsername(id)
+        UserDto user = userService.getUserById(id)
                 .map(UserConverter::toDto)
                 .orElse(null);
 
@@ -61,7 +61,7 @@ public class UserController {
 
     @GetMapping("/edit/{id}")
     public String showEditForm(Model model, @PathVariable long id) {
-        UserDto user = userService.getUserByUsername(id)
+        UserDto user = userService.getUserById(id)
                 .map(UserConverter::toDto)
                 .orElse(null);
         model.addAttribute("user", user);

@@ -17,12 +17,12 @@ public class UserConverter {
 
     //Convert from Dto to Entity
     public static User toEntity(UserDto userDto) {
-        User UserEntity =  new User();
-        userDto.setName(userDto.getName());
-        userDto.setAddress(userDto.getAddress());
-        userDto.setRole(userDto.getRole());
-        userDto.setPhone(userDto.getPhone());
+        User userEntity =  new User();
+        userEntity.setName(userDto.getName());
+        userEntity.setAddress(userDto.getAddress());
+        userEntity.setRole(userDto.getRole());
+        userEntity.setPhoneNo(userDto.getPhone());
 
-        return UserEntity;
+        return userEntity;
     }
 }
