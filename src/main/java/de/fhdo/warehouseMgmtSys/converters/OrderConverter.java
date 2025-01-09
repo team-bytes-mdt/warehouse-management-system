@@ -9,7 +9,9 @@ public class OrderConverter {
     public static OrderDto toDto(Order orderEntity) {
         return new OrderDto(
                orderEntity.getOrderId(),
-               orderEntity.getCustomerId(),
+               orderEntity.getCustomerName(),
+                orderEntity.getCustomerAddress(),
+                orderEntity.getCustomerAddress(),
                orderEntity.getStatus(),
                orderEntity.getCreatedDate()
         );
@@ -19,7 +21,9 @@ public class OrderConverter {
     public static Order toEntity(OrderDto orderDto) {
         Order OrderEntity =  new Order();
         OrderEntity.setOrderId(orderDto.getOrderId());
-        OrderEntity.setCustomerId(orderDto.getCustomerId());
+        OrderEntity.setCustomerName(orderDto.getCustomerName());
+        OrderEntity.setCustomerAddress(orderDto.getCustomerAddress());
+        OrderEntity.setCustomerPhoneNumber(orderDto.getCustomerPhoneNumber());
         OrderEntity.setStatus(orderDto.getOrderStatus());
         OrderEntity.setCreatedDate(orderDto.getCreatedAt());
 

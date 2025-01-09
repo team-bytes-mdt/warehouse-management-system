@@ -13,7 +13,8 @@ CREATE TABLE ITEM(
                      DESCRIPTION TEXT,
                      QUANTITY INT NOT NULL,
                      PRICE DECIMAL(10, 2) NOT NULL,
-                     CATEGORY VARCHAR(100) NOT NULL
+                     CATEGORY VARCHAR(100) NOT NULL,
+                     INVENTORY_ID BIGINT NOT NULL REFERENCES "INVENTORY"(INVENTORY_ID) ON DELETE CASCADE
 );
 
 CREATE TABLE USERS (
@@ -26,11 +27,19 @@ CREATE TABLE USERS (
 
 
 
+-- CREATE TABLE ORDERS (
+--                          ORDER_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+--                          CUSTOMER_ID BIGINT NOT NULL REFERENCES USERS(USER_ID),
+--                          STATUS ORDER_STATUS NOT NULL,
+--                          CREATED_DATE TIMESTAMP NOT NULL
+-- );
 CREATE TABLE ORDERS (
-                         ORDER_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
-                         CUSTOMER_ID BIGINT NOT NULL REFERENCES USERS(USER_ID),
-                         STATUS ORDER_STATUS NOT NULL,
-                         CREATED_DATE TIMESTAMP NOT NULL
+                        ORDER_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                        CUSTOMER_NAME VARCHAR(255) NOT NULL,
+                        CUSTOMER_ADDRESS VARCHAR(255) NOT NULL,
+                        CUSTOMER_PHONE_NUMBER VARCHAR(15) NOT NULL,
+                        STATUS ORDER_STATUS NOT NULL,
+                        CREATED_DATE TIMESTAMP NOT NULL
 );
 
 CREATE TABLE ORDER_ITEM (
