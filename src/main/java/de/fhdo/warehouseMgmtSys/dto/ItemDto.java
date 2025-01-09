@@ -9,15 +9,25 @@ public class ItemDto {
     private String category;
     private int quantity;
     private double price;
+    private long inventoryId;
 
     public ItemDto() {}
-    public ItemDto(long id, String name, String description, String category, int quantity, double price) {
+    public ItemDto(long id, String name, String description, String category, int quantity, double price, long inventoryId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
         this.quantity = quantity;
         this.price = price;
+        this.inventoryId = inventoryId;
+    }
+
+    public long getInventoryId() {
+        return inventoryId;
+    }
+
+    public void setInventoryId(long inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
     public long getId() {
