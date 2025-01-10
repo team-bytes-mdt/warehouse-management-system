@@ -51,9 +51,10 @@ input ItemInput {
     Order Input Object
 """
 input OrderInput {
-    customerId: ID!
+    customerName: String!
+    customerAddress: String!
+    customerPhoneNumber: String!
     status: OrderStatus!
-    createdDate: String!
 }
 """
 User Input Object
@@ -91,7 +92,9 @@ type Item {
 """
 type Order {
     orderId: ID!
-    customerId: ID!
+    customerName: String!
+    customerAddress: String!
+    customerPhoneNumber: String!
     status: OrderStatus!
     createdDate: String
 }
