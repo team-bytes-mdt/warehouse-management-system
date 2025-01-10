@@ -64,7 +64,7 @@ public class ItemRestController {
 
     // Delete an inventory
     @DeleteMapping("/{id}")
-    public ResponseEntity<ItemDto> deleteInventory(@PathVariable long id) {
+    public ResponseEntity<ItemDto> deleteItem(@PathVariable long id) {
         if(itemService.deleteItemById(id)){
             return ResponseEntity.noContent().build();
         }
