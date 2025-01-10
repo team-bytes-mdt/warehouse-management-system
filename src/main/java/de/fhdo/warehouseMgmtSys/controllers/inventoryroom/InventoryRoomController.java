@@ -1,9 +1,9 @@
-package de.fhdo.warehouseMgmtSys.controllers.inventory;
+package de.fhdo.warehouseMgmtSys.controllers.inventoryroom;
 
 import de.fhdo.warehouseMgmtSys.converters.InventoryConverter;
-import de.fhdo.warehouseMgmtSys.domain.Inventory;
-import de.fhdo.warehouseMgmtSys.dto.InventoryDto;
-import de.fhdo.warehouseMgmtSys.service.InventoryService;
+import de.fhdo.warehouseMgmtSys.domain.InventoryRoom;
+import de.fhdo.warehouseMgmtSys.dto.InventoryRoomDto;
+import de.fhdo.warehouseMgmtSys.service.InventoryRoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,26 +13,26 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/inventory")
-public class InventoryController {
-    private final InventoryService inventoryService;
+public class InventoryRoomController {
+    private final InventoryRoomService inventoryRoomService;
 
 
-    public InventoryController(InventoryService inventoryService) {
-        this.inventoryService = inventoryService;
+    public InventoryRoomController(InventoryRoomService inventoryRoomService) {
+        this.inventoryRoomService = inventoryRoomService;
 
     }
 
     @GetMapping
     public String getAllInventory(Model model) {
         // Fetch all inventories and convert them to DTOs
-        List<InventoryDto> inventoryDtos = inventoryService.getAllInventories()
+        List<InventoryRoomDto> inventoryRoomDtos = inventoryRoomService.getAllInventories()
                 .stream()
                 .map(InventoryConverter::toDto)
                 .collect(Collectors.toList());
 
-        System.out.println("List::::"+inventoryDtos);
+        System.out.println("List::::"+ inventoryRoomDtos);
         // Add DTOs to the model
-        model.addAttribute("inventories",inventoryDtos);
+        model.addAttribute("inventories", inventoryRoomDtos);
         return "inventory/inventories";
     }
 
@@ -41,7 +41,7 @@ public class InventoryController {
     @GetMapping("/{id}")
     public String getInventoryById(Model model, @PathVariable long id) {
         // Fetch item and convert it to DTO
-        InventoryDto inventory = inventoryService.getInventoryById(id)
+        InventoryRoomDto inventory = inventoryRoomService.getInventoryById(id)
                 .map(InventoryConverter::toDto)
                 .orElse(null);
 
@@ -52,39 +52,39 @@ public class InventoryController {
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
-        model.addAttribute("inventory", new InventoryDto());
+        model.addAttribute("inventory", new InventoryRoomDto());
         return "create-inventory";
     }
 
     @PostMapping
-    public String createInventory(@ModelAttribute InventoryDto inventoryDto) {
-        Inventory inventory = InventoryConverter.toEntity(inventoryDto);
-        inventoryService.createInventory(inventory);
+    public String createInventory(@ModelAttribute InventoryRoomDto inventoryRoomDto) {
+        InventoryRoom inventory = InventoryConverter.toEntity(inventoryRoomDto);
+        inventoryRoomService.createInventory(inventory);
         return "redirect:/inventory";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(Model model, @PathVariable long id) {
-        InventoryDto inventoryDto = inventoryService.getInventoryById(id)
+        InventoryRoomDto inventoryRoomDto = inventoryRoomService.getInventoryById(id)
                 .map(InventoryConverter::toDto)
                 .orElse(null);
-        model.addAttribute("inventory", inventoryDto);
+        model.addAttribute("inventory", inventoryRoomDto);
         return "inventory/edit-inventory";
     }
 
     @PostMapping("/update/{id}")
-    public String updateInventory(@PathVariable long id, @ModelAttribute InventoryDto inventoryDto) {
-        System.out.println("DATEEEEEEE PATH"+inventoryDto.getLastUpdatedDate());
-        Inventory inventory = InventoryConverter.toEntity(inventoryDto);
+    public String updateInventory(@PathVariable long id, @ModelAttribute InventoryRoomDto inventoryRoomDto) {
+        System.out.println("DATEEEEEEE PATH"+ inventoryRoomDto.getLastUpdatedDate());
+        InventoryRoom inventory = InventoryConverter.toEntity(inventoryRoomDto);
 
         System.out.println("Invent::"+inventory.getLocation());
-        inventoryService.updateInventoryById(id, inventory);
+        inventoryRoomService.updateInventoryById(id, inventory);
         return "redirect:/inventory";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteInventory(@PathVariable long id) {
-        inventoryService.deleteInventoryById(id);
+        inventoryRoomService.deleteInventoryById(id);
         return "redirect:/inventory";
     }
 

@@ -1,16 +1,16 @@
 package de.fhdo.warehouseMgmtSys.converters;
 
-import de.fhdo.warehouseMgmtSys.domain.Inventory;
-import de.fhdo.warehouseMgmtSys.dto.InventoryDto;
+import de.fhdo.warehouseMgmtSys.domain.InventoryRoom;
+import de.fhdo.warehouseMgmtSys.dto.InventoryRoomDto;
 
 public class InventoryConverter {
 
     //Convert from Entity to Dto
-    public static InventoryDto toDto(Inventory inventory) {
+    public static InventoryRoomDto toDto(InventoryRoom inventory) {
         if (inventory == null) {
             return null;
         }
-        return new InventoryDto(
+        return new InventoryRoomDto(
                 inventory.getId(),
                 inventory.getLocation(),
                 inventory.getLastUpdatedDate()
@@ -18,17 +18,17 @@ public class InventoryConverter {
     }
 
     //Convert from Dto to Entity
-    public static Inventory toEntity(InventoryDto inventoryDto) {
+    public static InventoryRoom toEntity(InventoryRoomDto inventoryRoomDto) {
 
-        System.out.println("DTO:::"+inventoryDto.getLastUpdatedDate());
-        if (inventoryDto == null) {
+        System.out.println("DTO:::"+ inventoryRoomDto.getLastUpdatedDate());
+        if (inventoryRoomDto == null) {
             return null;
         }
 
-        Inventory inventory = new Inventory();
-        inventory.setId(inventoryDto.getId());
-        inventory.setLocation(inventoryDto.getLocation());
-        inventory.setLastUpdatedDate(inventoryDto.getLastUpdatedDate());
+        InventoryRoom inventory = new InventoryRoom();
+        inventory.setId(inventoryRoomDto.getId());
+        inventory.setLocation(inventoryRoomDto.getLocation());
+        inventory.setLastUpdatedDate(inventoryRoomDto.getLastUpdatedDate());
         return inventory;
     };
 }
