@@ -29,7 +29,6 @@ public class OrderService {
 
     public Optional<Order> updateOrder(long id,Order order) {
         return orderRepository.findById(id).map(existing -> {
-            existing.setOrderId(order.getOrderId());
             existing.setCustomerName(order.getCustomerName());
             existing.setCustomerAddress(order.getCustomerAddress());
             existing.setCustomerPhoneNumber(order.getCustomerPhoneNumber());

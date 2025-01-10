@@ -11,7 +11,7 @@ public class OrderConverter {
                orderEntity.getOrderId(),
                orderEntity.getCustomerName(),
                 orderEntity.getCustomerAddress(),
-                orderEntity.getCustomerAddress(),
+                orderEntity.getCustomerPhoneNumber(),
                orderEntity.getStatus(),
                orderEntity.getCreatedDate()
         );
