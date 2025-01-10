@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "INVENTORY")
-public class Inventory {
+@Table(name = "INVENTORY_ROOMS")
+public class InventoryRoom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,12 +19,12 @@ public class Inventory {
     @Column(name = "LAST_UPDATED_DATE", nullable = false, updatable = false)
     private LocalDateTime lastUpdatedDate;
 
-    public Inventory() {
+    public InventoryRoom() {
         // Default constructor
     }
 
 
-    public Inventory(String location, LocalDateTime lastUpdatedDate) {
+    public InventoryRoom(String location, LocalDateTime lastUpdatedDate) {
         this.location = location;
         this.lastUpdatedDate = lastUpdatedDate;
     }

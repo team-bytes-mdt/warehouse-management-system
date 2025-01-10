@@ -30,7 +30,7 @@ type Mutation {
 }
 
 """
-    Inventory Input Object
+    InventoryRoom Input Object
 """
 input InventoryInput {
     location: String!
@@ -67,7 +67,7 @@ input UserInput {
 }
 
 """
-    Inventory Type Object
+    InventoryRoom Type Object
 """
 type Inventory {
     id: ID!
