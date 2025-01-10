@@ -13,11 +13,11 @@ ALTER TABLE ITEM ALTER COLUMN ITEM_ID RESTART WITH (SELECT MAX(ITEM_ID) + 1 FROM
 ALTER TABLE USERS RENAME TO "user";
 INSERT INTO "user" (USER_ID, NAME, ADDRESS, ROLE, PHONE_NUMBER)
 VALUES
-    (1, 'Alice Johnson', '123 Elm Street, Cityville', 'ADMIN', '+12345678901'),
-    (2, 'Bob Smith', '456 Oak Avenue, Townsville', 'INVENTORY_MANAGER', '+12345678902'),
+    (1, 'Alice Johnson', '123 Elm Street, Cityville', 'SYSTEM ADMINISTRATOR', '+12345678901'),
+    (2, 'Bob Smith', '456 Oak Avenue, Townsville', 'WAREHOUSE MANAGER', '+12345678902'),
     (3, 'Carol Davis', '789 Pine Road, Metropolis', 'SYSTEM_ADMINISTRATOR', '+12345678903'),
     (4, 'David Wilson', '321 Maple Drive, Suburbia', 'WAREHOUSE_STAFF', '+12345678904'),
-    (5, 'Eve Brown', '654 Birch Lane, Urbania', 'CUSTOMER', '+12345678905');
+    (5, 'Eve Brown', '654 Birch Lane, Urbania', 'WAREHOUSE_STAFF', '+12345678905');
 ALTER TABLE "user" ALTER COLUMN USER_ID RESTART WITH (SELECT MAX(USER_ID) + 1 FROM "user");
 
 -- INSERT INTO ORDERS (ORDER_ID, CUSTOMER_ID, STATUS, CREATED_DATE) VALUES (1, 1, 'PENDING', '2024-12-01 10:30:00');
